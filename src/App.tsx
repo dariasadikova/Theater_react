@@ -1,93 +1,48 @@
-import React from 'react';
-import { Divider, Table } from 'antd';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Divider, Table, Button } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import './App.css'; 
 
-interface DataType {
-  key: React.Key;
-  title: string;
-  genre: string;
-  director: string;
-  datetime: Date;
-}
+interface DataType { 
+  name: string; 
+  country: string; 
+} 
 
-const columns: ColumnsType<DataType> = [
-  {
-    title: 'Title',
-    dataIndex: 'title',
-  },
-  {
-    title: 'Genre',
-    dataIndex: 'genre',
-  },
-  {
-    title: 'Director',
-    dataIndex: 'director',
-  },
-  {
-    title: 'Datetime',
-    dataIndex: 'datetime',
-  },
-];
+const columns: ColumnsType<DataType> = [ 
+{ 
+  title: 'Name', 
+  dataIndex: 'name', 
+  key: 'name', 
+  render: (text) => <a >{text}</a>, 
+}, 
+{ 
+  title: 'Country', 
+  dataIndex: 'country', 
+  key: 'country', 
+}, 
+]; 
 
-const data: DataType[] = [
-  {
-    key: '1',
-    title: 'Вишневый сад',
-    genre: 'комедия',
-    director: 'Кирилл Серебрянников',
-    datetime: '05.02.2024, 19:30',
-  },
-  {
-    key: '2',
-    title: 'Отелло',
-    genre: 'трагедия',
-    director: 'Константин Райкин',
-    datetime: '20.04.2024, 18:00',
-  },
-  {
-    key: '3',
-    title: 'Евгений Онегин',
-    genre: 'опера',
-    director: 'Владимир Петров',
-    datetime: '19.12.2023, 19:00',
-  },
-  {
-    key: '4',
-    title: 'Ромео и Джульетта',
-    genre: 'трагедия',
-    director: 'Лев Додин',
-    datetime: '05.05.2024, 19:00',
-  },
-  {
-    key: '5',
-    title: 'Гамлет',
-    genre: 'трагедия',
-    director: 'Олег Табаков',
-    datetime: '15.01.2024, 17:30',
-  },
-  {
-    key: '6',
-    title: 'Волки и овцы',
-    genre: 'комедия',
-    director: 'Владимир Смирнов',
-    datetime: '29.01.2024, 19:30',
-  },
+function App() { 
+  const LIMIT_LIST_SCHOOL = 10; 
+  const [page, setPage] = useState<number>(1) 
+  const [dataSource, setDataSource] = useState<DataType[]>() 
+  const getUniversity = async (page: number, limit: number) => { 
+      const response = await axios.get(`http://universities.hipolabs.com/search?offset=${page*limit}&limit=${limit}`) 
+      setDataSource(response.data);     
+  } 
+  useEffect(() => { 
+      getUniversity(page, LIMIT_LIST_SCHOOL) 
+  }, [page]) 
 
-];
-
-const App: React.FC = () => {
-  return (
-    <div>
-      <Divider />
-
-      <Table
-        columns={columns}
-        dataSource={data}
-        pagination={{ pageSize: 3 }}
-      />
-    </div>
-  );
-};
+  return ( 
+      <> 
+          <Table dataSource={dataSource} columns={columns} pagination={false}/> 
+              <Button onClick={() => setPage(page - 1)} disabled={!(page-1)}>Назад</Button> 
+              <p>{page}</p> 
+              <Button onClick={() => setPage(page + 1)}>Вперед</Button> 
+      </> 
+  ) 
+} 
 
 export default App;
