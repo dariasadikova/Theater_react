@@ -1,7 +1,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
 }
 
@@ -40,3 +40,75 @@
 .read-the-docs {
   color: #888;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.table-and-filters {
+  display: flex;
+  justify-content: space-between;
+}
+
+.table-container {
+  flex-grow: 2;
+}
+
+.filters {
+  flex-grow: 1;
+  max-width: 200px; 
+  margin-left: 50px;
+}
+
+.filters_h {
+  text-align: right;
+  color: grey;
+  margin-bottom: 10px;
+}
+
+
+.filters input {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.pagination button {
+  background-color: #90ee1f; 
+  border: none;
+  color: #000000;
+  margin: 0 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background-color: #cccccc;
+  cursor: default;
+}
+
+.pagination p {
+  margin: 0 10px;
+}
+
+
+@media (max-width: 768px) {
+  .table-and-filters {
+    flex-direction: column;
+  }
+
+  .filters {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+
