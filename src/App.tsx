@@ -13,17 +13,17 @@ interface PlayType {
 
 const columns: ColumnsType<PlayType> = [ 
   { 
-    title: 'название', 
+    title: 'Название', 
     dataIndex: 'title', 
     key: 'title', 
   }, 
   { 
-    title: 'жанр', 
+    title: 'Жанр', 
     dataIndex: 'genre', 
     key: 'genre', 
   }, 
   { 
-    title: 'режиссер', 
+    title: 'Режиссер', 
     dataIndex: 'director', 
     key: 'director', 
   }, 
@@ -39,9 +39,9 @@ const App: React.FC = () => {
 
   const getFilteredData = () => {
     return playsData.filter(play => 
-      play.title.toLowerCase().includes(filterTitle.toLowerCase()) &&
-      play.genre.toLowerCase().includes(filterGenre.toLowerCase()) &&
-      play.director.toLowerCase().includes(filterDirector.toLowerCase())
+      (filterTitle === "" || play.title.toLowerCase().startsWith(filterTitle.toLowerCase())) &&
+      (filterGenre === "" || play.genre.toLowerCase().startsWith(filterGenre.toLowerCase())) &&
+      (filterDirector === "" || play.director.toLowerCase().startsWith(filterDirector.toLowerCase()))
     );
   };
 
@@ -60,7 +60,8 @@ const App: React.FC = () => {
     getPlays(page);
   }, [page, filterTitle, filterGenre, filterDirector]);
 
-
+  const startRecord = (page - 1) * LIMIT + 1;
+  const endRecord = startRecord + dataSource.length - 1;
   const totalRecords = getFilteredData().length;
   const maxPage = Math.ceil(totalRecords / LIMIT);
 
@@ -78,17 +79,17 @@ const App: React.FC = () => {
         <div className="filters">
           <p className="filters_h">фильтры</p>
           <Input 
-            placeholder="Название" 
+            placeholder="название" 
             value={filterTitle} 
             onChange={e => setFilterTitle(e.target.value)}
           />
           <Input 
-            placeholder="Жанр" 
+            placeholder="жанр" 
             value={filterGenre} 
             onChange={e => setFilterGenre(e.target.value)}
           />
           <Input 
-            placeholder="Режиссер" 
+            placeholder="режиссер" 
             value={filterDirector} 
             onChange={e => setFilterDirector(e.target.value)}
           />
@@ -99,6 +100,7 @@ const App: React.FC = () => {
 }
 
 export default App;
+
 
 
 
