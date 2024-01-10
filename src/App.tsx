@@ -13,17 +13,17 @@ interface PlayType {
 
 const columns: ColumnsType<PlayType> = [ 
   { 
-    title: 'Название', 
+    title: 'название', 
     dataIndex: 'title', 
     key: 'title', 
   }, 
   { 
-    title: 'Жанр', 
+    title: 'жанр', 
     dataIndex: 'genre', 
     key: 'genre', 
   }, 
   { 
-    title: 'Режиссер', 
+    title: 'режиссер', 
     dataIndex: 'director', 
     key: 'director', 
   }, 
@@ -60,8 +60,7 @@ const App: React.FC = () => {
     getPlays(page);
   }, [page, filterTitle, filterGenre, filterDirector]);
 
-  const startRecord = (page - 1) * LIMIT + 1;
-  const endRecord = startRecord + dataSource.length - 1;
+
   const totalRecords = getFilteredData().length;
   const maxPage = Math.ceil(totalRecords / LIMIT);
 
