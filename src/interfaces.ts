@@ -8,5 +8,18 @@ export interface PlayType {
 export interface NavbarProps {
     isAuth: boolean;
     setIsAuth: (isAuth: boolean) => void;
-  }
+}
   
+export interface Feedback {
+    name: string;
+    performance: string;
+    feedback: string;
+}
+
+
+export interface FeedbackForm {
+    name: string;
+    email: string;
+    performance: string;
+    feedback: string;
+}
