@@ -3,7 +3,10 @@ import { useForm } from 'react-hook-form';
 import { Feedback, FeedbackForm } from '../interfaces';
 
 const FeedbackPage: React.FC = () => {
-  const [feedbackList, setFeedbackList] = useState<Feedback[]>([]);
+  const [feedbackList, setFeedbackList] = useState<Feedback[]>(() => {
+    const savedFeedbacks = localStorage.getItem('feedbacks');
+    return savedFeedbacks ? JSON.parse(savedFeedbacks) : [];
+  });
 
   const { 
     register, // метод для регистрации вашего инпута, для дальнейшей работы с ним
@@ -22,7 +25,10 @@ const FeedbackPage: React.FC = () => {
     };
       
     // Обновление списка отзывов с добавлением нового отзыва
-    setFeedbackList(currentFeedbackList => [...currentFeedbackList, newFeedback]);
+    const updatedFeedbackList = [...feedbackList, newFeedback];
+    setFeedbackList(updatedFeedbackList);
+
+    localStorage.setItem('feedbacks', JSON.stringify(updatedFeedbackList));
       
       // Очистка формы после отправки
       reset();
@@ -77,7 +83,7 @@ const FeedbackPage: React.FC = () => {
         {feedbackList.length > 0 ? (
           feedbackList.map((feedback, index) => (
             <div key={index}>
-              <p>{feedback.name} о спектакле {feedback.performance} :</p>
+              <strong><p>{feedback.name} о спектакле {feedback.performance} :</p></strong>
               <p>{feedback.feedback}</p>
             </div>
           ))
