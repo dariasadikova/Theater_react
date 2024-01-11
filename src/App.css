@@ -1,13 +1,10 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 1rem;
+  width: 100%;
   text-align: center;
 }
 
 .logo {
   height: 6em;
-  padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
@@ -44,7 +41,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  margin: 20px;
+  margin: 0 80px 40px;
 }
 
 .table-and-filters {
@@ -82,9 +79,9 @@
 }
 
 .pagination button {
-  background-color: #90ee1f; 
+  background-color: #228B22; 
   border: none;
-  color: #000000;
+  color: #fff;
   margin: 0 5px;
   padding: 5px 10px;
   cursor: pointer;
@@ -95,20 +92,65 @@
   cursor: default;
 }
 
+
 .pagination p {
   margin: 0 10px;
 }
 
 
-@media (max-width: 768px) {
-  .table-and-filters {
-    flex-direction: column;
-  }
-
-  .filters {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+.navbar {
+  padding: 1px 30px;
+  background-color: #FFE4C4;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav_ul {
+  display: flex;
+  gap: 40px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 400; 
+  transition: color 0.3s; 
+}
+
+.navbar a, .navbar button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px; 
+}
+
+.navbar a:hover {
+  color: #228B22;
+}
+
+.button-login {
+  background-color: #006400; 
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.button-login:hover {
+  background-color: #228B22;
+}
+
+
 
 
