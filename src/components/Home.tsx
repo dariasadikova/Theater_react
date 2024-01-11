@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Feedback, FeedbackForm } from '../interfaces';
+import '../App.css';
 
 const FeedbackPage: React.FC = () => {
   const [feedbackList, setFeedbackList] = useState<Feedback[]>(() => {
@@ -34,7 +35,7 @@ const FeedbackPage: React.FC = () => {
       reset();
     };
   return (
-    <div>
+    <div className="feedback-form">
       <h4>Рады видеть Вас на сайте нашего театра!</h4>
       <p>Оставьте здесь, пожалуйста, Ваш отзыв от постановки, нам это важно. Спасибо!</p>
       <form onSubmit={handleSubmit(submitFeedback)} noValidate>
@@ -78,8 +79,8 @@ const FeedbackPage: React.FC = () => {
         <button type="submit" disabled={!isValid}>Отправить</button>
       </form>
 
-      <div>
-        <h5>все отзывы</h5>
+      <div className="feedback-list">
+        <p>все отзывы</p>
         {feedbackList.length > 0 ? (
           feedbackList.map((feedback, index) => (
             <div key={index}>

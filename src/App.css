@@ -151,6 +151,92 @@
   background-color: #228B22;
 }
 
+.button-theme {
+  background-color: #fff; 
+  border: none;
+  color: #15171a;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.button-theme:hover {
+  background-color: #15171a;
+  color: #fff; 
+}
+
+.feedback-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.feedback-form h4,
+.feedback-form p {
+  text-align: center;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #006400;
+  border-radius: 4px;
+}
+
+.feedback-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #006400;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.feedback-form button:hover {
+  background-color: #228B22;
+  transform: scale(1);
+}
+
+.feedback-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.feedback-form div {
+  color: red;
+  margin-bottom: 10px;
+}
+
+
+.feedback-list {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.feedback-list > div {
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+
+.feedback-list strong {
+  color: #333;
+}
+
+.feedback-list p {
+  color: #666;
+}
 
 
 
