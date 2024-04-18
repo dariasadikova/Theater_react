@@ -14,6 +14,7 @@ export interface Feedback {
     name: string;
     performance: string;
     feedback: string;
+    picture: string;
 }
 
 
@@ -21,6 +22,13 @@ export interface FeedbackForm {
     name: string;
     email: string;
     performance: string;
-    feedback: string;
+    feedback: string
+    picture: FileList;
 }
 
+export interface PDFDocProps {
+    name: string;
+    performance: string;
+    feedback: string;
+    picture: string;
+}
