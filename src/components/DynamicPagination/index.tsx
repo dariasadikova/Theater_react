@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import { useInView } from 'react-intersection-observer';
-import { Table } from 'antd';
-import styled from 'styled-components';
-import playsData from '../../plays.json';
-import { PlayType } from '../../interfaces';
-import { columns } from '../../consts';
+import React, { useEffect, useState, useCallback } from "react";
+import { useInView } from "react-intersection-observer";
+import { Table } from "antd";
+import styled from "styled-components";
+import playsData from "../../plays.json";
+import { PlayType } from "../../interfaces";
+import { columns } from "../../consts";
 
 const LIMIT = 10;
 
@@ -13,7 +13,6 @@ const ListStyled = styled.div`
   flex-direction: column;
   gap: 10px;
 `;
-
 
 const DynamicPagination: React.FC = () => {
   const [plays, setPlays] = useState<PlayType[]>([]);
@@ -28,7 +27,7 @@ const DynamicPagination: React.FC = () => {
     setLoading(true);
     const startIndex = (currentPage - 1) * LIMIT;
     const newPlays = playsData.slice(startIndex, startIndex + LIMIT);
-    setPlays(prev => [...prev, ...newPlays]);
+    setPlays((prev) => [...prev, ...newPlays]);
     setLoading(false);
   }, [currentPage]);
 
@@ -38,14 +37,14 @@ const DynamicPagination: React.FC = () => {
 
   useEffect(() => {
     if (inView && !loading) {
-      setCurrentPage(prevPage => prevPage + 1);
+      setCurrentPage((prevPage) => prevPage + 1);
     }
   }, [inView, loading]);
 
   return (
     <ListStyled>
       <Table dataSource={plays.map((record) => ({ ...record, key: record.id }))} columns={columns} pagination={false} />
-      <div ref={ref} style={{ height: '1px' }} />
+      <div ref={ref} style={{ height: "1px" }} />
     </ListStyled>
   );
 };

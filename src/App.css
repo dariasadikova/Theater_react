@@ -55,7 +55,7 @@
 
 .filters {
   flex-grow: 1;
-  max-width: 200px; 
+  max-width: 200px;
   margin-left: 50px;
 }
 
@@ -64,7 +64,6 @@
   color: grey;
   margin-bottom: 10px;
 }
-
 
 .filters input {
   margin-bottom: 10px;
@@ -79,7 +78,7 @@
 }
 
 .pagination button {
-  background-color: #228B22; 
+  background-color: #228b22;
   border: none;
   color: #fff;
   margin: 0 5px;
@@ -92,15 +91,13 @@
   cursor: default;
 }
 
-
 .pagination p {
   margin: 0 10px;
 }
 
-
 .navbar {
   padding: 1px 30px;
-  background-color: #FFE4C4;
+  background-color: #ffe4c4;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
 }
@@ -119,23 +116,24 @@
 .navbar a {
   text-decoration: none;
   color: #333;
-  font-weight: 400; 
-  transition: color 0.3s; 
+  font-weight: 400;
+  transition: color 0.3s;
 }
 
-.navbar a, .navbar button {
+.navbar a,
+.navbar button {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 30px; 
+  height: 30px;
 }
 
 .navbar a:hover {
-  color: #228B22;
+  color: #228b22;
 }
 
 .button-login {
-  background-color: #006400; 
+  background-color: #006400;
   border: none;
   color: white;
   text-align: center;
@@ -148,11 +146,11 @@
 }
 
 .button-login:hover {
-  background-color: #228B22;
+  background-color: #228b22;
 }
 
 .button-theme {
-  background-color: #fff; 
+  background-color: #fff;
   border: none;
   color: #15171a;
   text-align: center;
@@ -166,7 +164,7 @@
 
 .button-theme:hover {
   background-color: #15171a;
-  color: #fff; 
+  color: #fff;
 }
 
 .feedback-form {
@@ -201,7 +199,7 @@
 }
 
 .feedback-form button:hover {
-  background-color: #228B22;
+  background-color: #228b22;
   transform: scale(1);
 }
 
@@ -214,7 +212,6 @@
   color: red;
   margin-bottom: 10px;
 }
-
 
 .feedback-list {
   max-width: 600px;
@@ -237,6 +234,3 @@
 .feedback-list p {
   color: #666;
 }
-
-
-

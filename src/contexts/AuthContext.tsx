@@ -1,5 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
-
+import React, { createContext, useState, useContext } from "react";
 
 type AuthContextType = {
   isAuth: boolean;
@@ -7,13 +6,11 @@ type AuthContextType = {
   logout: () => void;
 };
 
-
 const AuthContext = createContext<AuthContextType>(null!);
 
 type AuthProviderProps = {
-    children: React.ReactNode;
-  };
-  
+  children: React.ReactNode;
+};
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [isAuth, setIsAuth] = useState(false);
@@ -21,12 +18,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const login = () => setIsAuth(true);
   const logout = () => setIsAuth(false);
 
-  return (
-    <AuthContext.Provider value={{ isAuth, login, logout }}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={{ isAuth, login, logout }}>{children}</AuthContext.Provider>;
 };
-
 
 export const useAuth = () => useContext(AuthContext);

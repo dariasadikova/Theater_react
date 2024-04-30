@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 		html[data-theme='light'] {
@@ -17,7 +17,5 @@ const GlobalStyles = createGlobalStyle`
     /* Другие глобальные стили */
   }
 `;
-
-
 
 export default GlobalStyles;
