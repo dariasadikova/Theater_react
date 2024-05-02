@@ -1,68 +1,52 @@
-import {FC, useEffect, useState} from "react";
-import {IUniversity} from "./university.interface.ts";
-import CardUniversity from "../CardUniversity";
-import {useInView} from 'react-intersection-observer';
-import axios from "axios";
+import React, { useEffect, useState, useCallback } from "react";
+import { useInView } from "react-intersection-observer";
+import { Table } from "antd";
 import styled from "styled-components";
+import playsData from "../../plays.json";
+import { PlayType } from "../../interfaces";
+import { columns } from "../../consts";
 
-
-const LIMIT_UNIVERSITIES = 15;
+const LIMIT = 10;
 
 const ListStyled = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
 
-const BlockObserver = styled.div`
-    height: 40px;
-    background-color: black;
-`
+const DynamicPagination: React.FC = () => {
+  const [plays, setPlays] = useState<PlayType[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [loading, setLoading] = useState(false);
 
-const DynamicPagination: FC = () => {
-    const [universities, setUniversities] = useState<Array<IUniversity>>([]);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [loading, setLoading] = useState(true);
+  const { ref, inView } = useInView({
+    threshold: 0,
+  });
 
-    useEffect(() => {
-        fetchUniversities()
-    }, [currentPage])
+  const loadMorePlays = useCallback(() => {
+    setLoading(true);
+    const startIndex = (currentPage - 1) * LIMIT;
+    const newPlays = playsData.slice(startIndex, startIndex + LIMIT);
+    setPlays((prev) => [...prev, ...newPlays]);
+    setLoading(false);
+  }, [currentPage]);
 
-    const {ref, inView} = useInView({
-        threshold: 1.0,
-    });
+  useEffect(() => {
+    loadMorePlays();
+  }, [loadMorePlays]);
 
-    useEffect(() => {
-        if (inView) {
-            setLoading(true);
-            setCurrentPage((prev) => prev + 1)
-        }
-    }, [inView]);
-
-    const fetchUniversities = async () => {
-        try {
-            const offset = (currentPage - 1) * LIMIT_UNIVERSITIES
-            const response = await axios.get(`http://universities.hipolabs.com/search?offset=${offset}&limit=${LIMIT_UNIVERSITIES}`)
-            setUniversities((prev) => [...prev, ...response.data])
-        } catch (error) {
-            console.log('Error fetching univer...', error)
-        } finally {
-            setLoading(false)
-        }
+  useEffect(() => {
+    if (inView && !loading) {
+      setCurrentPage((prevPage) => prevPage + 1);
     }
-    return (
-        <ListStyled>
-            <h1>List Universities</h1>
-            {
-                universities.map((university) => (
-                    <CardUniversity data={university} key={university.name}></CardUniversity>
-                ))
-            }
-            {loading && <div>Loading...</div>}
-            {!loading && <BlockObserver ref={ref}></BlockObserver>}
-        </ListStyled>
-    )
-}
+  }, [inView, loading]);
+
+  return (
+    <ListStyled>
+      <Table dataSource={plays.map((record) => ({ ...record, key: record.id }))} columns={columns} pagination={false} />
+      <div ref={ref} style={{ height: "1px" }} />
+    </ListStyled>
+  );
+};
 
 export default DynamicPagination;
-

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import Navbar from './components/Navbar/index';
-import MainRouter from './app/routes/MainRouter';
-import { AuthProvider } from './contexts/AuthContext';
-import GlobalStyles from './global-styles';
-import './App.css';
+import React, { useState } from "react";
+import Navbar from "./components/Navbar/index";
+import MainRouter from "./app/routes/MainRouter";
+import { AuthProvider } from "./contexts/AuthContext";
+import GlobalStyles from "./global-styles";
+import "./App.css";
 
 const App = () => {
   const [isAuth, setIsAuth] = useState(false);
@@ -18,6 +18,5 @@ const App = () => {
     </>
   );
 };
-
 
 export default App;
