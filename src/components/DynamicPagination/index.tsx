@@ -8,10 +8,9 @@ import { columns } from "../../consts";
 
 const LIMIT = 10;
 
-const ListStyled = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+const PlaysWrapper = styled.div`
+  max-height: 400px; 
+  overflow-y: auto; 
 `;
 
 const DynamicPagination: React.FC = () => {
@@ -42,10 +41,10 @@ const DynamicPagination: React.FC = () => {
   }, [inView, loading]);
 
   return (
-    <ListStyled>
+    <PlaysWrapper>
       <Table dataSource={plays.map((record) => ({ ...record, key: record.id }))} columns={columns} pagination={false} />
       <div ref={ref} style={{ height: "1px" }} />
-    </ListStyled>
+</PlaysWrapper>
   );
 };
 
