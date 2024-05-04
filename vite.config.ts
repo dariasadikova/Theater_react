@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     VitePWA({
        registerType: "prompt",
-       includeAssets: ["theater_react.png"],
+       includeAssets: ["theater_react.ico", "theater_react.png", "masked-theater_react.svg"],
        manifest: {
           name: "Theater_react",
           short_name: "Theater",
@@ -17,25 +17,17 @@ export default defineConfig({
           start_url: "/",
           icons: [
             {
-              src: "/public/theater_react.png",
+              src: "theater_react192.png",
               sizes: "192x192",
               type: "image/png",
-              purpose: "favicon",
            },
            {
-              src: "/public/theater_react.png",
+              src: "theater_react512.png",
               sizes: "512x512",
               type: "image/png",
-              purpose: "favicon",
            },
            {
-              src: "/public/theater_react.png",
-              sizes: "180x180",
-              type: "image/png",
-              purpose: "apple touch icon",
-           },
-           {
-              src: "/public/theater_react.png",
+              src: "theater_react512.png",
               sizes: "512x512",
               type: "image/png",
               purpose: "any maskable",
