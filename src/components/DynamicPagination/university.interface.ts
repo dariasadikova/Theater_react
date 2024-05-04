@@ -1,4 +1,4 @@
 export interface IUniversity {
-    country: string;
-    name: string;
+  country: string;
+  name: string;
 }

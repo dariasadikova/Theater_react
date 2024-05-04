@@ -1,7 +1,7 @@
-import React from 'react';
-import { Input } from 'antd';
-import '../App.css';
-import DynamicPagination from './DynamicPagination';
+import React from "react";
+import { Input } from "antd";
+import "../App.css";
+import DynamicPagination from "./DynamicPagination";
 
 const PlaysPage: React.FC = () => {
   return (
@@ -19,6 +19,6 @@ const PlaysPage: React.FC = () => {
       </div>
     </div>
   );
-}
+};
 
 export default PlaysPage;

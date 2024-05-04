@@ -44,9 +44,8 @@ const DynamicPagination: React.FC = () => {
     <PlaysWrapper>
       <Table dataSource={plays.map((record) => ({ ...record, key: record.id }))} columns={columns} pagination={false} />
       <div ref={ref} style={{ height: "1px" }} />
-    </PlaysWrapper>
+</PlaysWrapper>
   );
 };
 
 export default DynamicPagination;
-
