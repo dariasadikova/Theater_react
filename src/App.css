@@ -1,13 +1,10 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
   text-align: center;
 }
 
 .logo {
   height: 6em;
-  padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
@@ -39,4 +36,201 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 80px 40px;
+}
+
+.table-and-filters {
+  display: flex;
+  justify-content: space-between;
+}
+
+.table-container {
+  flex-grow: 2;
+}
+
+.filters {
+  flex-grow: 1;
+  max-width: 200px;
+  margin-left: 50px;
+}
+
+.filters_h {
+  text-align: right;
+  color: grey;
+  margin-bottom: 10px;
+}
+
+.filters input {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.pagination button {
+  background-color: #228b22;
+  border: none;
+  color: #fff;
+  margin: 0 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background-color: #cccccc;
+  cursor: default;
+}
+
+.pagination p {
+  margin: 0 10px;
+}
+
+.navbar {
+  padding: 1px 30px;
+  background-color: #ffe4c4;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav_ul {
+  display: flex;
+  gap: 40px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 400;
+  transition: color 0.3s;
+}
+
+.navbar a,
+.navbar button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+}
+
+.navbar a:hover {
+  color: #228b22;
+}
+
+.button-login {
+  background-color: #006400;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.button-login:hover {
+  background-color: #228b22;
+}
+
+.button-theme {
+  background-color: #fff;
+  border: none;
+  color: #15171a;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.button-theme:hover {
+  background-color: #15171a;
+  color: #fff;
+}
+
+.feedback-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.feedback-form h4,
+.feedback-form p {
+  text-align: center;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #006400;
+  border-radius: 4px;
+}
+
+.feedback-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #006400;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.feedback-form button:hover {
+  background-color: #228b22;
+  transform: scale(1);
+}
+
+.feedback-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.feedback-form div {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.feedback-list {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.feedback-list > div {
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+
+.feedback-list strong {
+  color: #333;
+}
+
+.feedback-list p {
+  color: #666;
 }

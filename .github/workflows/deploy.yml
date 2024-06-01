@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Simple workflow for deploying static content to GitHub Pages
 name: Deploy static content to Pages
 
@@ -50,31 +49,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-=======
-name: Add Text to PR Description
-
-on:
-  pull_request:
-    branches:
-      - '*'
-    types: [opened]
-
-jobs:
-  add-text:
-    permissions: write-all
-    runs-on: ubuntu-latest
-    steps:
-    - name: Add Text to PR Description v2
-      uses: actions/github-script@v4
-      with:
-        github-token: ${{secrets.GITHUB_TOKEN}}
-        script: |
-          const textToAdd = 'Садикова Дарья 221-321';
-          const newDescription = textToAdd;
-          github.pulls.update({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            pull_number: context.issue.number,
-            body: newDescription
-          });
->>>>>>> 7f2b8f42608ba2a4bbe647545c755dc4d5a0854e
